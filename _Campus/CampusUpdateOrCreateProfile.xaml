@@ -1,0 +1,1721 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CampusGetUpdate" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionStatut" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionNom" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionPrenom" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionEmail" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionIdentifiant" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionMotDePasse" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionNumeroEleve" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionCompte" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionGroupe" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionTitre" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>959,4805</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CampusGetUpdate_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CampusGetUpdate" sap:VirtualizedContainerService.HintSize="939,4745" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:GenericValue" Name="StatutList" />
+      <Variable x:TypeArguments="x:Boolean" Name="UpdateUserExists1" />
+      <Variable x:TypeArguments="x:Boolean" Name="UpdateUserExists2" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Change &quot;Statut&quot;" sap:VirtualizedContainerService.HintSize="897,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:AnchorBase AnchorPosition="Top" DisplayName="Change &quot;Statut&quot;" sap:VirtualizedContainerService.HintSize="409,380" sap2010:WorkflowViewState.IdRef="AnchorBase_22">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="5" DelayBefore="5" DisplayName="Select Item 'SELECT  statut'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_13" Item="--Autre--">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="8">
+                  <x:String>--choisir--</x:String>
+                  <x:String>Non renseigne</x:String>
+                  <x:String>Salarié</x:String>
+                  <x:String>Demandeur emploi</x:String>
+                  <x:String>Apprenti</x:String>
+                  <x:String>--Autre--</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2496a98c4a93d2c084323c189c32c8e0" Selector="&lt;webctrl tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_22">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="34eb9841400bd5b087cc835554ece89c" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Statut *' innertext='Statut *' parentid='users-form' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+      <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="5" DisplayName="Type Into 'INPUT  statut-text'" EmptyField="True" sap:VirtualizedContainerService.HintSize="409,134" sap2010:WorkflowViewState.IdRef="TypeInto_15" SimulateType="True" Text="[in_TransactionStatut]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="00a648351dfcff8385d3fb8e0e0eabbe" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl id='statut-text' tag='INPUT' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+    </Sequence>
+    <Switch x:TypeArguments="x:String" DisplayName="Change &quot;Civilité&quot;" Expression="[in_TransactionTitre]" sap:VirtualizedContainerService.HintSize="897,51" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:AnchorBase x:Key="Monsieur" AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,380" sap2010:WorkflowViewState.IdRef="AnchorBase_14">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  civilite'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="M.">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="4">
+                  <x:String>M.</x:String>
+                  <x:String>Mme</x:String>
+                  <x:String>Mlle</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f650cbec9bdd7b4da7509f291ee9809e" Selector="&lt;webctrl tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_14">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2c2cd738a3ed180571d0dd6bac24fc58" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl parentid='civilite-label' tag='LABEL' aaname='Civilite' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+      <ui:AnchorBase x:Key="Mademoiselle" AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,380" sap2010:WorkflowViewState.IdRef="AnchorBase_15">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  civilite'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_5" Item="Mlle">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="4">
+                  <x:String>M.</x:String>
+                  <x:String>Mme</x:String>
+                  <x:String>Mlle</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f650cbec9bdd7b4da7509f291ee9809e" Selector="&lt;webctrl tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_15">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2c2cd738a3ed180571d0dd6bac24fc58" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl parentid='civilite-label' tag='LABEL' aaname='Civilite' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+      <ui:AnchorBase x:Key="Madame" AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,380" sap2010:WorkflowViewState.IdRef="AnchorBase_16">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  civilite'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_6" Item="Mme">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="4">
+                  <x:String>M.</x:String>
+                  <x:String>Mme</x:String>
+                  <x:String>Mlle</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f650cbec9bdd7b4da7509f291ee9809e" Selector="&lt;webctrl tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_16">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2c2cd738a3ed180571d0dd6bac24fc58" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl parentid='civilite-label' tag='LABEL' aaname='Civilite' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+    </Switch>
+    <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Nom&quot;" sap:VirtualizedContainerService.HintSize="897,51" sap2010:WorkflowViewState.IdRef="AnchorBase_11">
+      <ui:AnchorBase.Action>
+        <ActivityAction x:TypeArguments="ui:Anchor">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+          </ActivityAction.Argument>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  name'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_8" SimulateType="True" Text="[in_TransactionNom]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="877972ef6b41cc7d6e5ac2783ee56556" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </ActivityAction>
+      </ui:AnchorBase.Action>
+      <ui:AnchorBase.AnchorProvider>
+        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_11">
+          <ui:WaitUiElementAppear.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="de3c0283e6fd0ecc10770eb8afef32c2" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Nom *' parentid='users-form' tag='LABEL' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:WaitUiElementAppear.Target>
+        </ui:WaitUiElementAppear>
+      </ui:AnchorBase.AnchorProvider>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AnchorBase>
+    <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Prénom&quot;" sap:VirtualizedContainerService.HintSize="897,51" sap2010:WorkflowViewState.IdRef="AnchorBase_2">
+      <ui:AnchorBase.Action>
+        <ActivityAction x:TypeArguments="ui:Anchor">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+          </ActivityAction.Argument>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type &quot;Prénom&quot;" EmptyField="True" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_TransactionPrenom]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e2a14b79684b388106162d5665f892bb" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:TypeInto>
+        </ActivityAction>
+      </ui:AnchorBase.Action>
+      <ui:AnchorBase.AnchorProvider>
+        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element &quot;Prénom&quot;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+          <ui:WaitUiElementAppear.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7d2c9d110bbdad10c822be6937de75ae" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Prénom *' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:WaitUiElementAppear.Target>
+        </ui:WaitUiElementAppear>
+      </ui:AnchorBase.AnchorProvider>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AnchorBase>
+    <Sequence DisplayName="Affect the &quot;Groupe&quot;" sap:VirtualizedContainerService.HintSize="897,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="Uncheck All Groups" sap:VirtualizedContainerService.HintSize="497,928" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  c59'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_14">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f4b7ed563e0706ba82b3c9a27e605796" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='  FORMATION RPA' /&gt;&lt;webctrl type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  60'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_9">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="180785921e0187fa410c687a6bd91072" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-1' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  61'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_10">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3b2d7e73fa02d0f671f91b9c9fdda7aa" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-2' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  62'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_11">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ebb2a72362a5f96b57bddee206b3d956" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-3' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  63'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_12">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b32f21fda5e3687508393c1e5d55f83d" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-4' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  64'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_13">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d1e17bb10a14904a87b020cd072adec" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-5' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+      </Sequence>
+      <Switch x:TypeArguments="x:String" DisplayName="Affect the Group" Expression="[in_TransactionGroupe.ToString]" sap:VirtualizedContainerService.HintSize="497,246" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-1" Action="Check" DisplayName="Check 'INPUT  60'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_4">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="180785921e0187fa410c687a6bd91072" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-1' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-2" Action="Check" DisplayName="Check 'INPUT  61'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_5">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3b2d7e73fa02d0f671f91b9c9fdda7aa" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-2' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-3" Action="Check" DisplayName="Check 'INPUT  62'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_6">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ebb2a72362a5f96b57bddee206b3d956" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-3' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-4" Action="Check" DisplayName="Check 'INPUT  63'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_7">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b32f21fda5e3687508393c1e5d55f83d" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-4' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-5" Action="Check" DisplayName="Check 'INPUT  64'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_8">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d1e17bb10a14904a87b020cd072adec" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-5' type='checkbox' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="FORMATION RPA" Action="Check" DisplayName="Check 'INPUT  c59'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_15">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="593e2686f40164cc7f86b50a38fed5ed" Selector="&lt;html url='https://www.campus-cql.fitec.fr/users/create' /&gt;&lt;webctrl id='c59' tag='INPUT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Check.Target>
+        </ui:Check>
+      </Switch>
+    </Sequence>
+    <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Adresse e-mail&quot;" sap:VirtualizedContainerService.HintSize="897,51" sap2010:WorkflowViewState.IdRef="AnchorBase_3">
+      <ui:AnchorBase.Action>
+        <ActivityAction x:TypeArguments="ui:Anchor">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+          </ActivityAction.Argument>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type Into 'INPUT  email'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[in_TransactionEmail]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="65eab5d3019394695898a228450690f2" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </ActivityAction>
+      </ui:AnchorBase.Action>
+      <ui:AnchorBase.AnchorProvider>
+        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'INPUT  email'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
+          <ui:WaitUiElementAppear.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="458109747b917486d762cfd20b827cfe" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl parentid='email-label' tag='LABEL' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:WaitUiElementAppear.Target>
+        </ui:WaitUiElementAppear>
+      </ui:AnchorBase.AnchorProvider>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AnchorBase>
+    <If Condition="[in_TransactionCompte.Contains(&quot;Actif&quot;)]" DisplayName="If &quot;Compte&quot; is Checked " sap:VirtualizedContainerService.HintSize="897,592" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:AnchorBase AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="384,352" sap2010:WorkflowViewState.IdRef="AnchorBase_7">
+          <ui:AnchorBase.Action>
+            <ActivityAction x:TypeArguments="ui:Anchor">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+              </ActivityAction.Argument>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'INPUT  active'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_2">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7b71a0f3cf5f3c5dfa7f44a54913103e" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Check.Target>
+              </ui:Check>
+            </ActivityAction>
+          </ui:AnchorBase.Action>
+          <ui:AnchorBase.AnchorProvider>
+            <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_7">
+              <ui:WaitUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="38b46121739133987431468677b1b312" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Actif' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:WaitUiElementAppear.Target>
+            </ui:WaitUiElementAppear>
+          </ui:AnchorBase.AnchorProvider>
+        </ui:AnchorBase>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="426,444" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="ReportFilePath" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:AnchorBase AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="384,352" sap2010:WorkflowViewState.IdRef="AnchorBase_10">
+            <ui:AnchorBase.Action>
+              <ActivityAction x:TypeArguments="ui:Anchor">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                </ActivityAction.Argument>
+                <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  active'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_3">
+                  <ui:Check.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7b71a0f3cf5f3c5dfa7f44a54913103e" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Check.Target>
+                </ui:Check>
+              </ActivityAction>
+            </ui:AnchorBase.Action>
+            <ui:AnchorBase.AnchorProvider>
+              <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_10">
+                <ui:WaitUiElementAppear.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="38b46121739133987431468677b1b312" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Actif' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:WaitUiElementAppear.Target>
+              </ui:WaitUiElementAppear>
+            </ui:AnchorBase.AnchorProvider>
+          </ui:AnchorBase>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Identifiant&quot;" sap:VirtualizedContainerService.HintSize="897,380" sap2010:WorkflowViewState.IdRef="AnchorBase_13">
+      <ui:AnchorBase.Action>
+        <ActivityAction x:TypeArguments="ui:Anchor">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+          </ActivityAction.Argument>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type Into 'INPUT  login'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_12" SimulateType="True" Text="[in_TransactionPrenom+&quot;_&quot;+ in_TransactionNom]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6d78fcdeff486d81b8db47e9a93dc2e8" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </ActivityAction>
+      </ui:AnchorBase.Action>
+      <ui:AnchorBase.AnchorProvider>
+        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_13">
+          <ui:WaitUiElementAppear.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="37a96736ea716899cc167fc633bf749b" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Identifiant de connexion *' parentid='users-form' tag='LABEL' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:WaitUiElementAppear.Target>
+        </ui:WaitUiElementAppear>
+      </ui:AnchorBase.AnchorProvider>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AnchorBase>
+    <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Mot de passe&quot;" sap:VirtualizedContainerService.HintSize="897,51" sap2010:WorkflowViewState.IdRef="AnchorBase_5">
+      <ui:AnchorBase.Action>
+        <ActivityAction x:TypeArguments="ui:Anchor">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+          </ActivityAction.Argument>
+          <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type Into 'INPUT  password'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="[in_TransactionMotDePasse]">
+            <ui:TypeInto.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d9a63af6ef23eb2a9319e95537586326" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:TypeInto.Target>
+          </ui:TypeInto>
+        </ActivityAction>
+      </ui:AnchorBase.Action>
+      <ui:AnchorBase.AnchorProvider>
+        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'INPUT  password'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_5">
+          <ui:WaitUiElementAppear.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="694e81125ed517db237ec9a978da8b6c" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Mot de passe *' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:WaitUiElementAppear.Target>
+        </ui:WaitUiElementAppear>
+      </ui:AnchorBase.AnchorProvider>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AnchorBase>
+    <Sequence DisplayName="Add &quot;Numéro élève&quot; if Exists on the page" sap:VirtualizedContainerService.HintSize="897,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="existeNumeroEleve" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:UiElementExists DisplayName="Element Exists 'TBODY'" Exists="[existeNumeroEleve]" sap:VirtualizedContainerService.HintSize="575,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="48746ea425fa388e2637923d6436d2a5" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl id='numero_eleve_starform' tag='INPUT' /&gt;" TimeoutMS="100">
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[existeNumeroEleve]" sap:VirtualizedContainerService.HintSize="575,620" sap2010:WorkflowViewState.IdRef="If_3">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="426,472" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ui:GenericValue" Name="ttttttt" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AnchorBase AnchorPosition="Top" DisplayName="Add &quot;Numéro élève&quot;" sap:VirtualizedContainerService.HintSize="384,380" sap2010:WorkflowViewState.IdRef="AnchorBase_6">
+              <ui:AnchorBase.Action>
+                <ActivityAction x:TypeArguments="ui:Anchor">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                  </ActivityAction.Argument>
+                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type Into 'INPUT  numero_eleve_sta...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" SimulateType="True" Text="[in_TransactionNumeroEleve.ToString.Replace(&quot; &quot;,&quot;&quot;)]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="04609d14d8dc648080070d860b2a422b" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                </ActivityAction>
+              </ui:AnchorBase.Action>
+              <ui:AnchorBase.AnchorProvider>
+                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_6">
+                  <ui:WaitUiElementAppear.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2ec23af7ad3a9784482ba37a3d33a533" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Numéro élève starform' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:WaitUiElementAppear.Target>
+                </ui:WaitUiElementAppear>
+              </ui:AnchorBase.AnchorProvider>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AnchorBase>
+          </Sequence>
+        </If.Then>
+      </If>
+    </Sequence>
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="897,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="06c4fadab9da0f034063e56e394b7650" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl tag='INPUT' type='button' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Click.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:Click>
+    <Sequence DisplayName="CampusGetUpdate" sap:VirtualizedContainerService.HintSize="897,2682" sap2010:WorkflowViewState.IdRef="Sequence_25">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="ui:GenericValue" Name="StatutList" />
+        <Variable x:TypeArguments="x:Boolean" Name="UpdateUserExists1" />
+        <Variable x:TypeArguments="x:Boolean" Name="UpdateUserExists2" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="Change &quot;Statut&quot;" sap:VirtualizedContainerService.HintSize="855,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:AnchorBase AnchorPosition="Top" DisplayName="Change &quot;Statut&quot;" sap:VirtualizedContainerService.HintSize="409,380" sap2010:WorkflowViewState.IdRef="AnchorBase_23">
+          <ui:AnchorBase.Action>
+            <ActivityAction x:TypeArguments="ui:Anchor">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+              </ActivityAction.Argument>
+              <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="5" DelayBefore="5" DisplayName="Select Item 'SELECT  statut'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_14" Item="--Autre--">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="8">
+                    <x:String>--choisir--</x:String>
+                    <x:String>Non renseigne</x:String>
+                    <x:String>Salarié</x:String>
+                    <x:String>Demandeur emploi</x:String>
+                    <x:String>Apprenti</x:String>
+                    <x:String>--Autre--</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2496a98c4a93d2c084323c189c32c8e0" Selector="&lt;webctrl tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                  </ui:Target>
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+            </ActivityAction>
+          </ui:AnchorBase.Action>
+          <ui:AnchorBase.AnchorProvider>
+            <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_23">
+              <ui:WaitUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="34eb9841400bd5b087cc835554ece89c" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Statut *' innertext='Statut *' parentid='users-form' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:WaitUiElementAppear.Target>
+            </ui:WaitUiElementAppear>
+          </ui:AnchorBase.AnchorProvider>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:AnchorBase>
+        <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="5" DisplayName="Type Into 'INPUT  statut-text'" EmptyField="True" sap:VirtualizedContainerService.HintSize="409,134" sap2010:WorkflowViewState.IdRef="TypeInto_16" SimulateType="True" Text="[in_TransactionStatut]">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="00a648351dfcff8385d3fb8e0e0eabbe" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl id='statut-text' tag='INPUT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
+      </Sequence>
+      <Switch x:TypeArguments="x:String" DisplayName="Change &quot;Civilité&quot;" Expression="[in_TransactionTitre]" sap:VirtualizedContainerService.HintSize="855,51" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:AnchorBase x:Key="Monsieur" AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,380" sap2010:WorkflowViewState.IdRef="AnchorBase_24">
+          <ui:AnchorBase.Action>
+            <ActivityAction x:TypeArguments="ui:Anchor">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+              </ActivityAction.Argument>
+              <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  civilite'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_15" Item="M.">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="4">
+                    <x:String>M.</x:String>
+                    <x:String>Mme</x:String>
+                    <x:String>Mlle</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f650cbec9bdd7b4da7509f291ee9809e" Selector="&lt;webctrl tag='SELECT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+            </ActivityAction>
+          </ui:AnchorBase.Action>
+          <ui:AnchorBase.AnchorProvider>
+            <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_24">
+              <ui:WaitUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2c2cd738a3ed180571d0dd6bac24fc58" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl parentid='civilite-label' tag='LABEL' aaname='Civilite' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:WaitUiElementAppear.Target>
+            </ui:WaitUiElementAppear>
+          </ui:AnchorBase.AnchorProvider>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:AnchorBase>
+        <ui:AnchorBase x:Key="Mademoiselle" AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,380" sap2010:WorkflowViewState.IdRef="AnchorBase_25">
+          <ui:AnchorBase.Action>
+            <ActivityAction x:TypeArguments="ui:Anchor">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+              </ActivityAction.Argument>
+              <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  civilite'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_16" Item="Mlle">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="4">
+                    <x:String>M.</x:String>
+                    <x:String>Mme</x:String>
+                    <x:String>Mlle</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f650cbec9bdd7b4da7509f291ee9809e" Selector="&lt;webctrl tag='SELECT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+            </ActivityAction>
+          </ui:AnchorBase.Action>
+          <ui:AnchorBase.AnchorProvider>
+            <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_25">
+              <ui:WaitUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2c2cd738a3ed180571d0dd6bac24fc58" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl parentid='civilite-label' tag='LABEL' aaname='Civilite' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:WaitUiElementAppear.Target>
+            </ui:WaitUiElementAppear>
+          </ui:AnchorBase.AnchorProvider>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:AnchorBase>
+        <ui:AnchorBase x:Key="Madame" AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,380" sap2010:WorkflowViewState.IdRef="AnchorBase_26">
+          <ui:AnchorBase.Action>
+            <ActivityAction x:TypeArguments="ui:Anchor">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+              </ActivityAction.Argument>
+              <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  civilite'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_17" Item="Mme">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="4">
+                    <x:String>M.</x:String>
+                    <x:String>Mme</x:String>
+                    <x:String>Mlle</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f650cbec9bdd7b4da7509f291ee9809e" Selector="&lt;webctrl tag='SELECT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+            </ActivityAction>
+          </ui:AnchorBase.Action>
+          <ui:AnchorBase.AnchorProvider>
+            <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_26">
+              <ui:WaitUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2c2cd738a3ed180571d0dd6bac24fc58" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl parentid='civilite-label' tag='LABEL' aaname='Civilite' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:WaitUiElementAppear.Target>
+            </ui:WaitUiElementAppear>
+          </ui:AnchorBase.AnchorProvider>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:AnchorBase>
+      </Switch>
+      <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Nom&quot;" sap:VirtualizedContainerService.HintSize="855,51" sap2010:WorkflowViewState.IdRef="AnchorBase_27">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  name'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_17" SimulateType="True" Text="[in_TransactionNom]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="877972ef6b41cc7d6e5ac2783ee56556" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_27">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="de3c0283e6fd0ecc10770eb8afef32c2" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Nom *' parentid='users-form' tag='LABEL' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+      <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Prénom&quot;" sap:VirtualizedContainerService.HintSize="855,51" sap2010:WorkflowViewState.IdRef="AnchorBase_28">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type &quot;Prénom&quot;" EmptyField="True" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TypeInto_18" SimulateType="True" Text="[in_TransactionPrenom]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e2a14b79684b388106162d5665f892bb" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:TypeInto>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element &quot;Prénom&quot;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_28">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7d2c9d110bbdad10c822be6937de75ae" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Prénom *' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+      <Sequence DisplayName="Affect the &quot;Groupe&quot;" sap:VirtualizedContainerService.HintSize="855,66" sap2010:WorkflowViewState.IdRef="Sequence_19">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence DisplayName="Uncheck All Groups" sap:VirtualizedContainerService.HintSize="497,928" sap2010:WorkflowViewState.IdRef="Sequence_18">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  c59'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_16">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f4b7ed563e0706ba82b3c9a27e605796" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='  FORMATION RPA' /&gt;&lt;webctrl type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  60'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_17">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="180785921e0187fa410c687a6bd91072" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-1' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  61'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_18">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3b2d7e73fa02d0f671f91b9c9fdda7aa" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-2' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  62'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_19">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ebb2a72362a5f96b57bddee206b3d956" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-3' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  63'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_20">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b32f21fda5e3687508393c1e5d55f83d" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-4' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  64'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_21">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d1e17bb10a14904a87b020cd072adec" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-5' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+        </Sequence>
+        <Switch x:TypeArguments="x:String" DisplayName="Affect the Group" Expression="[in_TransactionGroupe.ToString]" sap:VirtualizedContainerService.HintSize="497,246" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-1" Action="Check" DisplayName="Check 'INPUT  60'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_22">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="180785921e0187fa410c687a6bd91072" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-1' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-2" Action="Check" DisplayName="Check 'INPUT  61'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_23">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3b2d7e73fa02d0f671f91b9c9fdda7aa" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-2' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-3" Action="Check" DisplayName="Check 'INPUT  62'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_24">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ebb2a72362a5f96b57bddee206b3d956" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-3' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-4" Action="Check" DisplayName="Check 'INPUT  63'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_25">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="b32f21fda5e3687508393c1e5d55f83d" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-4' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="RPA-5" Action="Check" DisplayName="Check 'INPUT  64'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_26">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d1e17bb10a14904a87b020cd072adec" Selector="&lt;html url='https://www.campus-cql.fitec.f*' /&gt;&lt;webctrl colName='Groupes' rowName='  RPA-5' type='checkbox' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+          <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="FORMATION RPA" Action="Check" DisplayName="Check 'INPUT  c59'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_27">
+            <ui:Check.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="593e2686f40164cc7f86b50a38fed5ed" Selector="&lt;html url='https://www.campus-cql.fitec.fr/users/create' /&gt;&lt;webctrl id='c59' tag='INPUT' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Check.Target>
+          </ui:Check>
+        </Switch>
+      </Sequence>
+      <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Adresse e-mail&quot;" sap:VirtualizedContainerService.HintSize="855,51" sap2010:WorkflowViewState.IdRef="AnchorBase_29">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type Into 'INPUT  email'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_19" SimulateType="True" Text="[in_TransactionEmail]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="65eab5d3019394695898a228450690f2" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'INPUT  email'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_29">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="458109747b917486d762cfd20b827cfe" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl parentid='email-label' tag='LABEL' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+      <If Condition="[in_TransactionCompte.Contains(&quot;Actif&quot;)]" DisplayName="If &quot;Compte&quot; is Checked " sap:VirtualizedContainerService.HintSize="855,592" sap2010:WorkflowViewState.IdRef="If_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <ui:AnchorBase AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="384,352" sap2010:WorkflowViewState.IdRef="AnchorBase_30">
+            <ui:AnchorBase.Action>
+              <ActivityAction x:TypeArguments="ui:Anchor">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                </ActivityAction.Argument>
+                <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'INPUT  active'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_28">
+                  <ui:Check.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7b71a0f3cf5f3c5dfa7f44a54913103e" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:Check.Target>
+                </ui:Check>
+              </ActivityAction>
+            </ui:AnchorBase.Action>
+            <ui:AnchorBase.AnchorProvider>
+              <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_30">
+                <ui:WaitUiElementAppear.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="38b46121739133987431468677b1b312" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Actif' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:WaitUiElementAppear.Target>
+              </ui:WaitUiElementAppear>
+            </ui:AnchorBase.AnchorProvider>
+          </ui:AnchorBase>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="426,444" sap2010:WorkflowViewState.IdRef="Sequence_20">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="ReportFilePath" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AnchorBase AnchorPosition="Top" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="384,352" sap2010:WorkflowViewState.IdRef="AnchorBase_31">
+              <ui:AnchorBase.Action>
+                <ActivityAction x:TypeArguments="ui:Anchor">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                  </ActivityAction.Argument>
+                  <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Uncheck" DisplayName="Check 'INPUT  active'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Check_29">
+                    <ui:Check.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7b71a0f3cf5f3c5dfa7f44a54913103e" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Check.Target>
+                  </ui:Check>
+                </ActivityAction>
+              </ui:AnchorBase.Action>
+              <ui:AnchorBase.AnchorProvider>
+                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_31">
+                  <ui:WaitUiElementAppear.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="38b46121739133987431468677b1b312" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Actif' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:WaitUiElementAppear.Target>
+                </ui:WaitUiElementAppear>
+              </ui:AnchorBase.AnchorProvider>
+            </ui:AnchorBase>
+          </Sequence>
+        </If.Else>
+      </If>
+      <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Identifiant&quot;" sap:VirtualizedContainerService.HintSize="855,380" sap2010:WorkflowViewState.IdRef="AnchorBase_32">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type Into 'INPUT  login'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_20" SimulateType="True" Text="[in_TransactionPrenom+&quot;_&quot;+ in_TransactionNom]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6d78fcdeff486d81b8db47e9a93dc2e8" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_32">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="37a96736ea716899cc167fc633bf749b" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Identifiant de connexion *' parentid='users-form' tag='LABEL' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+      <ui:AnchorBase AnchorPosition="Top" DisplayName="Type &quot;Mot de passe&quot;" sap:VirtualizedContainerService.HintSize="855,51" sap2010:WorkflowViewState.IdRef="AnchorBase_33">
+        <ui:AnchorBase.Action>
+          <ActivityAction x:TypeArguments="ui:Anchor">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+            </ActivityAction.Argument>
+            <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type Into 'INPUT  password'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_21" SimulateType="True" Text="[in_TransactionMotDePasse]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="d9a63af6ef23eb2a9319e95537586326" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+          </ActivityAction>
+        </ui:AnchorBase.Action>
+        <ui:AnchorBase.AnchorProvider>
+          <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'INPUT  password'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_33">
+            <ui:WaitUiElementAppear.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="694e81125ed517db237ec9a978da8b6c" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Mot de passe *' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:WaitUiElementAppear.Target>
+          </ui:WaitUiElementAppear>
+        </ui:AnchorBase.AnchorProvider>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:AnchorBase>
+      <Sequence DisplayName="Add &quot;Numéro élève&quot; if Exists on the page" sap:VirtualizedContainerService.HintSize="855,66" sap2010:WorkflowViewState.IdRef="Sequence_22">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:Boolean" Name="existeNumeroEleve" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:UiElementExists DisplayName="Element Exists 'TBODY'" Exists="[existeNumeroEleve]" sap:VirtualizedContainerService.HintSize="575,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+          <ui:UiElementExists.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="48746ea425fa388e2637923d6436d2a5" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl id='numero_eleve_starform' tag='INPUT' /&gt;" TimeoutMS="100">
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:UiElementExists.Target>
+        </ui:UiElementExists>
+        <If Condition="[existeNumeroEleve]" sap:VirtualizedContainerService.HintSize="575,620" sap2010:WorkflowViewState.IdRef="If_5">
+          <If.Then>
+            <Sequence sap:VirtualizedContainerService.HintSize="426,472" sap2010:WorkflowViewState.IdRef="Sequence_21">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:GenericValue" Name="ttttttt" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:AnchorBase AnchorPosition="Top" DisplayName="Add &quot;Numéro élève&quot;" sap:VirtualizedContainerService.HintSize="384,380" sap2010:WorkflowViewState.IdRef="AnchorBase_34">
+                <ui:AnchorBase.Action>
+                  <ActivityAction x:TypeArguments="ui:Anchor">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                    </ActivityAction.Argument>
+                    <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="5" DelayMS="5" DisplayName="Type Into 'INPUT  numero_eleve_sta...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_22" SimulateType="True" Text="[in_TransactionNumeroEleve.ToString.Replace(&quot; &quot;,&quot;&quot;)]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="04609d14d8dc648080070d860b2a422b" Selector="&lt;webctrl tag='INPUT' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                  </ActivityAction>
+                </ui:AnchorBase.Action>
+                <ui:AnchorBase.AnchorProvider>
+                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'LABEL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_34">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2ec23af7ad3a9784482ba37a3d33a533" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='Numéro élève starform' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                </ui:AnchorBase.AnchorProvider>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:AnchorBase>
+            </Sequence>
+          </If.Then>
+        </If>
+      </Sequence>
+      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="855,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="06c4fadab9da0f034063e56e394b7650" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl tag='INPUT' type='button' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:Click>
+      <ui:UiElementExists DisplayName="Element Exists 'STRONG'" Exists="[UpdateUserExists1]" sap:VirtualizedContainerService.HintSize="855,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="12122d92fcb4f9f82e309d09050c15a7" Selector="&lt;html url='https://www.campus-cql.fitec.fr/users*' /&gt;&lt;webctrl aaname='L&amp;apos;utilisateur &amp;quot;*&amp;quot; &amp;quot;*&amp;quot; existe déja ' /&gt;&lt;webctrl parentid='users-form' tag='STRONG' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[UpdateUserExists2]" sap:VirtualizedContainerService.HintSize="855,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="44b7bb75876bd271f73e5d1318847ee6" Selector="&lt;html url='https://www.campus-cql.fitec.fr*' /&gt;&lt;webctrl aaname='L&amp;apos;utilisateur &amp;quot;*&amp;quot; &amp;quot;*&amp;quot; existe déjà   Je souhaite affecter les groupes sélectionnés à l&amp;apos;utilisateur existant   Oui      non' idx='2' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[UpdateUserExists1 Or  UpdateUserExists2]" sap:VirtualizedContainerService.HintSize="855,327" sap2010:WorkflowViewState.IdRef="If_6">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_23">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CampusNavigateToUsers workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="_Campus\CampusNavigateToUsers.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </If.Then>
+      </If>
+    </Sequence>
+  </Sequence>
+</Activity>

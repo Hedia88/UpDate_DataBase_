@@ -1,0 +1,82 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_1_1__CampusLoginException" this:_1_1__CampusLoginException.in_AccountOutlook="hadrygassama@gmail.com" this:_1_1__CampusLoginException.in_SubjectOutlook="Erreur de Login au Campus ERP" this:_1_1__CampusLoginException.in_BodyOutlook="[&quot;Bonjour,&quot; +vbCrLf+vbCrLf+&quot;Le nom d'utilisateur et le mot de passe sont incorrects. Veuillez vérifier et recomencer.&quot;+vbCrLf+vbCrLf+&quot;Cordialement&quot;]" this:_1_1__CampusLoginException.in_ToOutlook="hadrygassama@gmail.com" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_AccountOutlook" Type="InArgument(x:String)" />
+    <x:Property Name="in_AttachmentOutlook" Type="InArgument(scg:IEnumerable(x:String))" />
+    <x:Property Name="in_SubjectOutlook" Type="InArgument(x:String)" />
+    <x:Property Name="in_BodyOutlook" Type="InArgument(x:String)" />
+    <x:Property Name="in_ToOutlook" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:_1_1__CampusLoginException.in_AttachmentOutlook>
+    <InArgument x:TypeArguments="scg:IEnumerable(x:String)" />
+  </this:_1_1__CampusLoginException.in_AttachmentOutlook>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>396,529</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_1_1__CampusLoginException_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="22">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: Gestion de l’exception si l’email ou le mot de passe est erroné, par l'envoi d'un email.&#xA;&#xA;Paramètres:&#xA;in_Body (In, String): Contenu du mail en entrée&#xA;in_Subject (In, String): Objet du mail en entrée&#xA;in_To (In, String): Email du destinataire en entrée&#xA;&#xA;Condition préalable: N/A&#xA;&#xA;Action Suivante: New System.Exception(&quot;l’email ou le mot de passe pour accéder à https://acme-test.uipath.com est erroné&quot;)" DisplayName="_2_1__CampusLoginException" sap:VirtualizedContainerService.HintSize="376,429" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="LoginSuccesful" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[in_AccountOutlook]" AttachmentsCollection="[in_AttachmentOutlook]" Body="[in_BodyOutlook]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[in_SubjectOutlook]" To="[in_ToOutlook]">
+      <ui:SendOutlookMail.Files>
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+      </ui:SendOutlookMail.Files>
+    </ui:SendOutlookMail>
+  </Sequence>
+</Activity>
